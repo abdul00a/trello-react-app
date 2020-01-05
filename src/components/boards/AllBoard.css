@@ -1,0 +1,14 @@
+.boardText {
+  margin: 0;
+  color: #fff;
+  font-family: fantasy;
+  text-decoration: underline;
+}
+.btn {
+  margin-top: 1em;
+}
+.boardContainer {
+  display: flex;
+  margin: 1.5% 10% 0 10%;
+  flex-wrap: wrap;
+}

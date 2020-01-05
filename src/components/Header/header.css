@@ -1,0 +1,7 @@
+.img-fluid {
+  display: block;
+  margin: 0 auto;
+}
+header:hover {
+  background-color: rgba(0, 0, 0, 0.52);
+}
