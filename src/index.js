@@ -12,8 +12,8 @@ import List from './components/lists/List';
 ReactDOM.render(
   <Router>
     <Switch>
-      <Route path="/home" component={App} />
-      <Route path="/list/:id" component={List} />
+      <Route path="/" exact component={App} />
+      <Route path="/board/:id/:name" component={List} />
     </Switch>
   </Router>,
   document.getElementById('root')

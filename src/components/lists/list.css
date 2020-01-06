@@ -1,0 +1,11 @@
+.listContainer {
+  margin: 0 3%;
+  display: flex;
+}
+.boardName {
+  color: white;
+  text-decoration: underline;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 0.9em;
+}

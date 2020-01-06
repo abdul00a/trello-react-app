@@ -1,0 +1,6 @@
+.card.small {
+  height: auto;
+}
+.card.small:hover {
+  background-color: #eaf0f4;
+}

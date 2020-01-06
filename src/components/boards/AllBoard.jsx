@@ -48,7 +48,7 @@ class AllBoard extends Component {
           <div>
             <ul className="boardContainer">
               {this.state.boardData.map(ele => (
-                <Board board={ele} />
+                <Board board={ele} key={ele.id} />
               ))}
             </ul>
           </div>

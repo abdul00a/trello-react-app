@@ -1,0 +1,14 @@
+.header {
+  margin: 5px 0 0 0;
+}
+.cards {
+  background-color: #bcd0db;
+}
+.lists {
+  margin-right: 2em;
+}
+.allcard {
+  max-height: 50em;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const Board = ({ board }) => {
   // console.log(board.id);
   return (
-    <li key={board.id} data-id={board.id}>
-      <Link to={`/list/${board.id}`}>
+    <li data-id={board.id}>
+      <Link to={`/board/${board.id}/${board.name}`}>
         <div className="card">
           <div className="card-image waves-effect waves-block waves-light">
             <img
@@ -23,10 +23,6 @@ const Board = ({ board }) => {
               {board.name}
             </span>
           </div>
-          {/* <li><Link to="/">Home</Link></li> */}
-          {/* <div className="card-reveal">
-        <span className="card-title grey-text text-darken-4">Card Title</span>
-      </div> */}
         </div>
       </Link>
     </li>
