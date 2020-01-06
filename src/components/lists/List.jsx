@@ -11,7 +11,7 @@ class List extends Component {
     this.state = {
       allList: []
     };
-    console.log(props);
+    // console.log(props);
   }
 
   componentDidMount() {
@@ -25,6 +25,31 @@ class List extends Component {
       });
   }
 
+  handleAddList = async name => {
+    const url = `https://api.trello.com/1/lists?name=${name}&idBoard=${this.props.match.params.id}&pos=bottom&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
+    const response = await fetch(url, {
+      method: 'POST'
+    });
+    const data = await response.json();
+    // console.log(data);
+    this.setState({
+      allList: this.state.allList.concat([data])
+    });
+  };
+
+  handleDeleteList = async id => {
+    // console.log(id);
+    const url = `https://api.trello.com/1/lists/${id}/closed?value=true&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
+    const response = await fetch(url, {
+      method: 'PUT'
+    });
+    const data = await response.json();
+    // console.log(data);
+    this.setState({
+      allList: this.state.allList.filter(li => li.id !== data.id)
+    });
+  };
+
   render() {
     return (
       <div>
@@ -34,9 +59,13 @@ class List extends Component {
         </h1>
         <div className="listContainer">
           {this.state.allList.map(ele => (
-            <BoardList data={ele} key={ele.id} />
+            <BoardList
+              data={ele}
+              key={ele.id}
+              onDeleteList={this.handleDeleteList}
+            />
           ))}
-          <Form name={'list'} />
+          <Form name={'list'} onAdd={this.handleAddList} />
         </div>
       </div>
     );

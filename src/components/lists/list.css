@@ -1,6 +1,8 @@
 .listContainer {
   margin: 0 3%;
   display: flex;
+  height: 60em;
+  overflow: auto;
 }
 .boardName {
   color: white;
@@ -8,4 +10,7 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin-left: 0.9em;
+}
+.listContainer::-webkit-scrollbar {
+  display: none;
 }

@@ -1,6 +1,17 @@
 .card.small {
   height: auto;
+  width: 22em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
 }
 .card.small:hover {
   background-color: #eaf0f4;
+}
+.cardValue {
+  display: flex;
+  justify-content: space-between;
+  width: 14em;
+  margin-left: auto;
+  margin-right: auto;
 }

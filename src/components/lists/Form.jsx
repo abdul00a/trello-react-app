@@ -6,7 +6,8 @@ class Form extends Component {
     super(props);
     this.state = {
       updiv: '',
-      downdiv: ''
+      downdiv: '',
+      name: ''
     };
     // console.log(props);
   }
@@ -23,7 +24,14 @@ class Form extends Component {
     });
   };
 
+  hanleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
+    const { name } = this.state;
+
     return (
       <div className="list">
         <button
@@ -38,22 +46,26 @@ class Form extends Component {
         <div className="add-list" style={{ display: this.state.downdiv }}>
           <div className="input-field col s6">
             <input
-              id="input_text"
+              // id="input_text"
               type="text"
+              name="name"
+              value={name}
               data-length="3"
               style={{
                 backgroundColor: '#fff',
                 paddingLeft: '5px',
-                margin: '0'
+                margin: '0',
+                width: '300px',
+                borderRadius: '0.5em'
               }}
               placeholder={`Enter ${this.props.name} title...`}
+              onChange={this.hanleChange}
             />
           </div>
           <div className="addlist">
             <button
               className="btn waves-effect waves-light add"
-              type="submit"
-              name="action"
+              onClick={() => this.props.onAdd(name)}
             >
               ADD
             </button>
