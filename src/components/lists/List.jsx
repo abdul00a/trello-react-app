@@ -3,16 +3,27 @@ import Header from '../Header/Header';
 import globalVariable from '../../globalVariable';
 import BoardList from './BoardLists';
 import Form from './Form';
+import Modal from '../modal/Modal';
 import './list.css';
 
 class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allList: []
+      allList: [],
+      open: false,
+      cardID: '',
+      cardName: ''
     };
-    // console.log(props);
   }
+
+  onOpenModal = value => {
+    this.setState({ open: true, cardID: value[0], cardName: value[1] });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
 
   componentDidMount() {
     const url = `https://api.trello.com/1/boards/${this.props.match.params.id}/lists?cards=none&card_fields=all&filter=open&fields=all&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
@@ -31,20 +42,17 @@ class List extends Component {
       method: 'POST'
     });
     const data = await response.json();
-    // console.log(data);
     this.setState({
       allList: this.state.allList.concat([data])
     });
   };
 
   handleDeleteList = async id => {
-    // console.log(id);
     const url = `https://api.trello.com/1/lists/${id}/closed?value=true&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
     const response = await fetch(url, {
       method: 'PUT'
     });
     const data = await response.json();
-    // console.log(data);
     this.setState({
       allList: this.state.allList.filter(li => li.id !== data.id)
     });
@@ -63,10 +71,17 @@ class List extends Component {
               data={ele}
               key={ele.id}
               onDeleteList={this.handleDeleteList}
+              openModal={this.onOpenModal}
             />
           ))}
           <Form name={'list'} onAdd={this.handleAddList} />
         </div>
+        <Modal
+          show={this.state.open}
+          close={this.onCloseModal}
+          cardID={this.state.cardID}
+          cardName={this.state.cardName}
+        />
       </div>
     );
   }

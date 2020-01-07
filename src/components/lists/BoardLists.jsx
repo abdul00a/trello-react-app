@@ -31,14 +31,12 @@ class BoardList extends Component {
       method: 'POST'
     });
     const data = await response.json();
-    // console.log(data);
     this.setState({
       cards: this.state.cards.concat([data])
     });
   };
 
   handleDeleteCard = async id => {
-    // console.log(id);
     const url = `https://api.trello.com/1/cards/${id}?key=${globalVariable.apiKey}&token=${globalVariable.token}`;
     await fetch(url, {
       method: 'DELETE'
@@ -62,13 +60,16 @@ class BoardList extends Component {
             </i>
           </h6>
           <div className="card allcard">
-            {this.state.cards.map(ele => (
-              <AllCards
-                cardObj={ele}
-                key={ele.id}
-                onDeleteCard={this.handleDeleteCard}
-              />
-            ))}
+            <ul>
+              {this.state.cards.map(ele => (
+                <AllCards
+                  cardObj={ele}
+                  key={ele.id}
+                  onDeleteCard={this.handleDeleteCard}
+                  modal={this.props.openModal}
+                />
+              ))}
+            </ul>
           </div>
           <Form name={'card'} onAdd={this.handleAddCard} />
         </div>

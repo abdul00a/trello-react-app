@@ -9,7 +9,6 @@ class Form extends Component {
       downdiv: '',
       name: ''
     };
-    // console.log(props);
   }
   handleCardDisplay = () => {
     this.setState({
@@ -41,12 +40,11 @@ class Form extends Component {
           onClick={this.handleCardDisplay}
           style={{ display: this.state.updiv, margin: '6px 0 5px 0' }}
         >
-          ADD List
+          ADD {this.props.name}
         </button>
         <div className="add-list" style={{ display: this.state.downdiv }}>
           <div className="input-field col s6">
             <input
-              // id="input_text"
               type="text"
               name="name"
               value={name}
@@ -65,7 +63,7 @@ class Form extends Component {
           <div className="addlist">
             <button
               className="btn waves-effect waves-light add"
-              onClick={() => this.props.onAdd(name)}
+              onClick={() => this.props.onAdd(name) }
             >
               ADD
             </button>

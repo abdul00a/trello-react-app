@@ -1,0 +1,21 @@
+.listName {
+  display: flex;
+}
+.name {
+  font-weight: bolder;
+  font-size: 1.7em;
+  padding-left: 0.4em;
+}
+.check-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 2em 0;
+}
+.del-btn {
+  padding: 0.4em 3em;
+  background-color: red;
+  font-weight: bolder;
+  font-size: 1.2em;
+  border-radius: 1.5em;
+  cursor: pointer;
+}

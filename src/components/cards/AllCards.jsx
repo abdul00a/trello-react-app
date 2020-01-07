@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './allcard.css';
 
-function AllCards(props) {
-  return (
-    <div className="card small" id={props.cardObj.id}>
-      <h6 className="cardValue">
-        {props.cardObj.name}
-        <i
-          className="material-icons del"
-          onClick={() => props.onDeleteCard(props.cardObj.id)}
+class AllCards extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    const { id, name } = this.props.cardObj;
+    const cardData = [id, name];
+    return (
+      <div className="card small" id={id}>
+        <li
+          onClick={e => {
+            e.stopPropagation();
+            this.props.modal(cardData);
+          }}
         >
-          cancel
-        </i>
-      </h6>
-    </div>
-  );
+          <h6 className="cardValue">
+            {name}
+            <i
+              className="material-icons del"
+              onClick={e => {
+                e.stopPropagation();
+                this.props.onDeleteCard(id);
+              }}
+            >
+              cancel
+            </i>
+          </h6>
+        </li>
+      </div>
+    );
+  }
 }
 
 export default AllCards;
