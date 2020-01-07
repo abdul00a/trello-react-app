@@ -9,13 +9,32 @@
 .check-list {
   display: flex;
   justify-content: space-between;
-  margin: 2em 0;
+  background-color: rgba(212, 218, 223, 0.54);
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 0.4em;
 }
 .del-btn {
   padding: 0.4em 3em;
-  background-color: red;
+  background-color: rgba(246, 24, 65, 0.8);
   font-weight: bolder;
   font-size: 1.2em;
   border-radius: 1.5em;
   cursor: pointer;
+  color: #fff;
+}
+.del-btn:hover {
+  transition: 0.3s ease-out;
+  background-color: rgba(238, 36, 36, 0.655);
+}
+i.small {
+  color: rgba(238, 36, 36, 0.795);
+}
+.checkitems-container {
+  width: 50em;
+}
+.checklist-container {
+  margin-top: 2em;
+  width: 55em;
+  margin: 2em auto 0 auto;
 }

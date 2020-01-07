@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import globalVariable from '../../globalVariable';
 import BoardList from './BoardLists';
 import Form from './Form';
+import { Link } from 'react-router-dom';
 import Modal from '../modal/Modal';
 import './list.css';
 
@@ -62,9 +63,16 @@ class List extends Component {
     return (
       <div>
         <Header />
-        <h1 className="boardName">
-          <em>{this.props.match.params.name}</em>
-        </h1>
+        <div className="headContainer">
+          <h1 className="boardName">
+            <em>{this.props.match.params.name}</em>
+          </h1>
+          <Link to="/" style={{alignSelf:'center'}}>
+            <button className="btn-board">
+              <span className="btn-text">Boards</span>
+            </button>
+          </Link>
+        </div>
         <div className="listContainer">
           {this.state.allList.map(ele => (
             <BoardList

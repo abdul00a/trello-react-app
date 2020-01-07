@@ -58,11 +58,11 @@ class Modal extends Component {
     return (
       <div>
         <Modals open={show} onClose={close}>
-          <h2 style={{ width: '80em' }}>{cardName}</h2>
+          <h2 style={{ width: '17em' }}>{cardName}</h2>
           <span style={{ display: 'flex' }}>
             <Form name={'checklist'} onAdd={this.handleAddCheckList} />
           </span>
-          <div className="checklist-container">
+          <div className="checklist-checkitems">
             {this.state.checkList.map(ele => (
               <CheckList
                 key={ele.id}

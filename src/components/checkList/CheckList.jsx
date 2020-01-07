@@ -14,13 +14,10 @@ class CheckList extends Component {
     event.target.checked === true
       ? (state = 'complete')
       : (state = 'incomplete');
-    console.log(event.target.checked);
     const url = `https://api.trello.com/1/cards/${this.props.listData.idCard}/checkItem/${event.target.id}?state=${state}&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
-    const res = await fetch(url, {
+    await fetch(url, {
       method: 'PUT'
     });
-    const data = await res.json();
-    console.log(data);
   };
 
   componentDidMount() {
@@ -31,7 +28,6 @@ class CheckList extends Component {
         this.setState({
           checkItems: data
         });
-        console.log(data);
       });
   }
 
@@ -41,7 +37,6 @@ class CheckList extends Component {
       method: 'POST'
     });
     const item = await response.json();
-    // console.log(item);
     this.setState({
       checkItems: this.state.checkItems.concat([item])
     });
@@ -77,6 +72,7 @@ class CheckList extends Component {
             DELETE
           </span>
         </div>
+        <hr style={{ margin: '2px 0 1.5em 0' }} />
         <div className="checkitems-container">
           {this.state.checkItems.map(item => (
             <CheckItems

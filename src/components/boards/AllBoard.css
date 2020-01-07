@@ -3,6 +3,7 @@
   color: #fff;
   font-family: fantasy;
   text-decoration: underline;
+  margin-top: 0.3em;
 }
 .btn {
   margin-top: 1em;
@@ -11,4 +12,8 @@
   display: flex;
   margin: 1.5% 10% 0 10%;
   flex-wrap: wrap;
+  background-color: transparent;
+}
+.board-head {
+  margin-left: 6em;
 }

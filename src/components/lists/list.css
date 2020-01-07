@@ -14,3 +14,24 @@
 .listContainer::-webkit-scrollbar {
   display: none;
 }
+.headContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-board {
+  width: 13em;
+  height: 3em;
+  background-color: #34a69a;
+  color: #fff;
+  border: none;
+  margin-right: 6em;
+  border-radius: 3em;
+}
+.btn-text {
+  font-size: 2em;
+  font-family: fantasy;
+  letter-spacing: 0.05em;
+}
+.btn-text:hover {
+  color: #090f0b;
+}

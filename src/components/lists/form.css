@@ -13,6 +13,7 @@
 }
 .addlist {
   display: flex;
+  margin-bottom: 1em;
 }
 .add-list {
   display: none;

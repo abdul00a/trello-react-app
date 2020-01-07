@@ -10,7 +10,7 @@
   width: 23em;
 }
 .lists {
-  margin-right: 2em;
+  margin-right: 1.2em;
 }
 .allcard {
   max-height: 50em;
@@ -21,4 +21,8 @@
 }
 .del {
   cursor: pointer;
+}
+ul {
+  background-color: #ebecf0;
+  margin: 0;
 }

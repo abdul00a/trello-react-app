@@ -38,13 +38,15 @@ class AllBoard extends Component {
     return (
       <section>
         <div>
-          <button
-            onClick={this.displayBoard}
-            className="btn btn-primary btn-lg"
-          >
-            Display Boadrs
-          </button>
-          <h1 className="boardText">All Trello Boards:</h1>
+          <div className="board-head">
+            <button
+              onClick={this.displayBoard}
+              className="btn btn-primary btn-lg"
+            >
+              Display Boadrs
+            </button>
+            <h1 className="boardText">All Trello Boards:</h1>
+          </div>
           <div>
             <ul className="boardContainer">
               {this.state.boardData.map(ele => (

@@ -1,9 +1,8 @@
 .card.small {
   height: auto;
   width: 22em;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 12px;
+  margin: 1.6em auto;
+  border-radius: 5px;
 }
 .card.small:hover {
   background-color: #eaf0f4;

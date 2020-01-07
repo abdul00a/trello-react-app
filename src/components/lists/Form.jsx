@@ -27,9 +27,17 @@ class Form extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
+  
   render() {
     const { name } = this.state;
+
+    const inputStyle = {
+      backgroundColor: '#fff',
+      paddingLeft: '5px',
+      margin: '0',
+      width: '300px',
+      borderRadius: '0.3em'
+    };
 
     return (
       <div className="list">
@@ -38,7 +46,7 @@ class Form extends Component {
           type="submit"
           name="action"
           onClick={this.handleCardDisplay}
-          style={{ display: this.state.updiv, margin: '6px 0 5px 0' }}
+          style={{ display: this.state.updiv, margin: '6px 0 1.2em 1.5em' }}
         >
           ADD {this.props.name}
         </button>
@@ -49,13 +57,7 @@ class Form extends Component {
               name="name"
               value={name}
               data-length="3"
-              style={{
-                backgroundColor: '#fff',
-                paddingLeft: '5px',
-                margin: '0',
-                width: '300px',
-                borderRadius: '0.5em'
-              }}
+              style={inputStyle}
               placeholder={`Enter ${this.props.name} title...`}
               onChange={this.hanleChange}
             />
@@ -63,7 +65,7 @@ class Form extends Component {
           <div className="addlist">
             <button
               className="btn waves-effect waves-light add"
-              onClick={() => this.props.onAdd(name) }
+              onClick={() => this.props.onAdd(name)}
             >
               ADD
             </button>

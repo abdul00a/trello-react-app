@@ -10,7 +10,6 @@ class BoardList extends Component {
     this.state = {
       cards: []
     };
-    // console.log(props);
   }
 
   componentDidMount() {
@@ -21,7 +20,6 @@ class BoardList extends Component {
         this.setState({
           cards: data
         });
-        // console.log(data);
       });
   }
 

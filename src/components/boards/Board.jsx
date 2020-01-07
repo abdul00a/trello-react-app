@@ -1,12 +1,10 @@
 import React from 'react';
 import './board.css';
 import { Link } from 'react-router-dom';
-// import List from '../lists/List';
 
 const Board = ({ board }) => {
-  // console.log(board.id);
   return (
-    <li data-id={board.id}>
+    <li className="boardElement">
       <Link to={`/board/${board.id}/${board.name}`}>
         <div className="card">
           <div className="card-image waves-effect waves-block waves-light">
