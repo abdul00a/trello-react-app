@@ -5,3 +5,9 @@
   overflow: auto;
   margin-top: 4em;
 }
+.card-name {
+  width: 17em;
+}
+.checklist-form {
+  display: flex;
+}

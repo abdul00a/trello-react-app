@@ -5,21 +5,18 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      updiv: '',
-      downdiv: '',
-      name: ''
+      name: '',
+      show: false
     };
   }
   handleCardDisplay = () => {
     this.setState({
-      updiv: 'none',
-      downdiv: 'block'
+      show: true
     });
   };
   handleBtnDisplay = () => {
     this.setState({
-      updiv: 'block',
-      downdiv: 'none'
+      show: false
     });
   };
 
@@ -27,7 +24,7 @@ class Form extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-  
+
   render() {
     const { name } = this.state;
 
@@ -42,15 +39,20 @@ class Form extends Component {
     return (
       <div className="list">
         <button
-          className="btn waves-effect waves-light newlist"
+          className="btn waves-effect waves-light add-btn"
           type="submit"
           name="action"
           onClick={this.handleCardDisplay}
-          style={{ display: this.state.updiv, margin: '6px 0 1.2em 1.5em' }}
+          style={{
+            display: !this.state.show ? 'block' : 'none'
+          }}
         >
           ADD {this.props.name}
         </button>
-        <div className="add-list" style={{ display: this.state.downdiv }}>
+        <div
+          className="add-list"
+          style={{ display: this.state.show ? 'block' : 'none' }}
+        >
           <div className="input-field col s6">
             <input
               type="text"

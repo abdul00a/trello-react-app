@@ -56,7 +56,7 @@ class CheckList extends Component {
     return (
       <div className="checklist-container">
         <div className="check-list">
-          <div className="listName" id={this.props.listData.id}>
+          <div className="listName">
             <span style={{ alignSelf: 'center', paddingTop: '0.5em' }}>
               <i className="material-icons">check_box</i>
             </span>
@@ -64,15 +64,12 @@ class CheckList extends Component {
           </div>
           <span
             className="del-btn"
-            onClick={e => {
-              e.stopPropagation();
-              this.props.onDeleteChecklist(this.props.listData.id);
-            }}
+            onClick={() => this.props.onDeleteChecklist(this.props.listData.id)}
           >
             DELETE
           </span>
         </div>
-        <hr style={{ margin: '2px 0 1.5em 0' }} />
+        <hr />
         <div className="checkitems-container">
           {this.state.checkItems.map(item => (
             <CheckItems
@@ -85,8 +82,8 @@ class CheckList extends Component {
             />
           ))}
         </div>
-        <div style={{ display: 'flex' }}>
-          <Form name={'checkItem'} onAdd={this.handleAddItems} />
+        <div className="checklist-addBtn">
+          <Form name="checkItem" onAdd={this.handleAddItems} />
         </div>
       </div>
     );

@@ -13,7 +13,7 @@ class BoardList extends Component {
   }
 
   componentDidMount() {
-    const url = `https://api.trello.com/1/lists/${this.props.data.id}/cards?key=${globalVariable.apiKey}&token=${globalVariable.token}`;
+    const url = `https://api.trello.com/1/lists/${this.props.list.id}/cards?key=${globalVariable.apiKey}&token=${globalVariable.token}`;
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -24,7 +24,7 @@ class BoardList extends Component {
   }
 
   handleAddCard = async name => {
-    const url = `https://api.trello.com/1/cards?name=${name}&idList=${this.props.data.id}&pos=bottom&keepFromSource=all&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
+    const url = `https://api.trello.com/1/cards?name=${name}&idList=${this.props.list.id}&pos=bottom&keepFromSource=all&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
     const response = await fetch(url, {
       method: 'POST'
     });
@@ -46,13 +46,13 @@ class BoardList extends Component {
 
   render() {
     return (
-      <div className="lists" id={this.props.data.id}>
+      <div className="lists">
         <div className="card cards">
           <h6 className="header">
-            {this.props.data.name}
+            {this.props.list.name}
             <i
               className="material-icons del"
-              onClick={() => this.props.onDeleteList(this.props.data.id)}
+              onClick={() => this.props.onDeleteList(this.props.list.id)}
             >
               cancel
             </i>
@@ -69,7 +69,7 @@ class BoardList extends Component {
               ))}
             </ul>
           </div>
-          <Form name={'card'} onAdd={this.handleAddCard} />
+          <Form name='card' onAdd={this.handleAddCard} />
         </div>
       </div>
     );

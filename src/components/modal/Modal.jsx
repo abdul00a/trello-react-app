@@ -13,19 +13,18 @@ class Modal extends Component {
     };
   }
 
-  componentDidUpdate() {
-    if (this.props.cardID !== this.state.idPrevCard) {
+  componentDidUpdate(prevCard) {
+    if (this.props.cardID !== prevCard.cardID) {
       if (this.state.checkList.length !== 0) {
         this.setState({ checkList: [] });
       }
-
       const url = `https://api.trello.com/1/cards/${this.props.cardID}/checklists?checkItems=none&key=${globalVariable.apiKey}&token=${globalVariable.token}`;
       fetch(url)
         .then(response => response.json())
         .then(data => {
           this.setState({
             checkList: data,
-            idPrevCard: this.props.cardID
+            prevCard: this.props.cardID
           });
         });
     }
@@ -58,9 +57,9 @@ class Modal extends Component {
     return (
       <div>
         <Modals open={show} onClose={close}>
-          <h2 style={{ width: '17em' }}>{cardName}</h2>
-          <span style={{ display: 'flex' }}>
-            <Form name={'checklist'} onAdd={this.handleAddCheckList} />
+          <h2 className="card-name">{cardName}</h2>
+          <span className="checklist-form">
+            <Form name="checklist" onAdd={this.handleAddCheckList} />
           </span>
           <div className="checklist-checkitems">
             {this.state.checkList.map(ele => (

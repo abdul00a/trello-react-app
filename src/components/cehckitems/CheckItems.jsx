@@ -8,7 +8,7 @@ function CheckItems(props) {
 
   const { name, id } = props;
   return (
-    <div className="items" id={id}>
+    <div className="items">
       <label>
         <input
           type="checkbox"
@@ -18,14 +18,7 @@ function CheckItems(props) {
         />
         <span>{name}</span>
       </label>
-      <i
-        style={{ cursor: 'pointer' }}
-        className="small material-icons"
-        onClick={e => {
-          e.stopPropagation();
-          props.onDelItem(id);
-        }}
-      >
+      <i className="small material-icons" onClick={() => props.onDelItem(id)}>
         cancel
       </i>
     </div>

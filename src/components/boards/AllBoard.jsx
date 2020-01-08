@@ -7,30 +7,17 @@ class AllBoard extends Component {
   constructor() {
     super();
     this.state = {
-      allBoards: [],
-      boardData: []
+      allBoard: []
     };
   }
-  displayBoard = async () => {
-    const val = this.state.allBoards.reduce((acc, boardObj) => {
-      const obj = {};
-      obj.name = boardObj.name;
-      obj.id = boardObj.id;
-      obj.img = boardObj.prefs.backgroundImage;
-      acc.push(obj);
-      return acc;
-    }, []);
-    this.setState({
-      boardData: val
-    });
-  };
+
   componentDidMount() {
     const url = `https://api.trello.com/1/members/me/boards?key=${globalVariable.apiKey}&token=${globalVariable.token}`;
     fetch(url)
       .then(response => response.json())
       .then(data => {
         this.setState({
-          allBoards: data
+          allBoard: data
         });
       });
   }
@@ -38,19 +25,16 @@ class AllBoard extends Component {
     return (
       <section>
         <div>
-          <div className="board-head">
-            <button
-              onClick={this.displayBoard}
-              className="btn btn-primary btn-lg"
-            >
-              Display Boadrs
-            </button>
-            <h1 className="boardText">All Trello Boards:</h1>
-          </div>
+          <h1 className="boardText">All Trello Boards:</h1>
           <div>
             <ul className="boardContainer">
-              {this.state.boardData.map(ele => (
-                <Board board={ele} key={ele.id} />
+              {this.state.allBoard.map(ele => (
+                <Board
+                  key={ele.id}
+                  id={ele.id}
+                  name={ele.name}
+                  imgURL={ele.prefs.backgroundImage}
+                />
               ))}
             </ul>
           </div>

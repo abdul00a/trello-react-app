@@ -18,8 +18,8 @@ class List extends Component {
     };
   }
 
-  onOpenModal = value => {
-    this.setState({ open: true, cardID: value[0], cardName: value[1] });
+  onOpenModal = (id, name) => {
+    this.setState({ open: true, cardID: id, cardName: name });
   };
 
   onCloseModal = () => {
@@ -67,7 +67,7 @@ class List extends Component {
           <h1 className="boardName">
             <em>{this.props.match.params.name}</em>
           </h1>
-          <Link to="/" style={{alignSelf:'center'}}>
+          <Link to="/" style={{ alignSelf: 'center' }}>
             <button className="btn-board">
               <span className="btn-text">Boards</span>
             </button>
@@ -76,13 +76,13 @@ class List extends Component {
         <div className="listContainer">
           {this.state.allList.map(ele => (
             <BoardList
-              data={ele}
+              list={ele}
               key={ele.id}
               onDeleteList={this.handleDeleteList}
               openModal={this.onOpenModal}
             />
           ))}
-          <Form name={'list'} onAdd={this.handleAddList} />
+          <Form name='list' onAdd={this.handleAddList} />
         </div>
         <Modal
           show={this.state.open}
