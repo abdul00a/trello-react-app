@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './checklist.css';
 import globalVariable from '../../globalVariable';
-import CheckItems from '../cehckitems/CheckItems';
-import Form from '../lists/Form';
+import CheckItems from '../checkItem/CheckItems';
+import AddForm from '../lists/AddForm';
 
 class CheckList extends Component {
   state = {
@@ -83,7 +83,7 @@ class CheckList extends Component {
           ))}
         </div>
         <div className="checklist-addBtn">
-          <Form name="checkItem" onAdd={this.handleAddItems} />
+          <AddForm name="checkItem" onAdd={this.handleAddItems} />
         </div>
       </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './boardList.css';
-import AllCards from '../cards/AllCards';
-import Form from './Form';
+import AllCards from '../cards/Card';
+import AddForm from './AddForm';
 import globalVariable from '../../globalVariable';
 
 class BoardList extends Component {
@@ -69,7 +69,7 @@ class BoardList extends Component {
               ))}
             </ul>
           </div>
-          <Form name='card' onAdd={this.handleAddCard} />
+          <AddForm name='card' onAdd={this.handleAddCard} />
         </div>
       </div>
     );

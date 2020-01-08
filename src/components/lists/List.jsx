@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
+import Header from '../header/Header';
 import globalVariable from '../../globalVariable';
 import BoardList from './BoardLists';
-import Form from './Form';
+import AddForm from './AddForm';
 import { Link } from 'react-router-dom';
 import Modal from '../modal/Modal';
 import './list.css';
@@ -82,7 +82,7 @@ class List extends Component {
               openModal={this.onOpenModal}
             />
           ))}
-          <Form name='list' onAdd={this.handleAddList} />
+          <AddForm name='list' onAdd={this.handleAddList} />
         </div>
         <Modal
           show={this.state.open}

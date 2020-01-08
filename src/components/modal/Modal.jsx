@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modals from 'react-responsive-modal';
 import './modal.css';
 import globalVariable from '../../globalVariable';
-import Form from '../lists/Form';
+import AddForm from '../lists/AddForm';
 import CheckList from '../checkList/CheckList';
 
 class Modal extends Component {
@@ -59,7 +59,7 @@ class Modal extends Component {
         <Modals open={show} onClose={close}>
           <h2 className="card-name">{cardName}</h2>
           <span className="checklist-form">
-            <Form name="checklist" onAdd={this.handleAddCheckList} />
+            <AddForm name="checklist" onAdd={this.handleAddCheckList} />
           </span>
           <div className="checklist-checkitems">
             {this.state.checkList.map(ele => (

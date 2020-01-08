@@ -1,7 +1,7 @@
 import React from 'react';
 import './allcard.css';
 
-function AllCards(props) {
+function Card(props) {
   const { id, name } = props.cardObj;
   return (
     <div className="card small">
@@ -23,4 +23,4 @@ function AllCards(props) {
   );
 }
 
-export default AllCards;
+export default Card;
